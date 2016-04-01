@@ -2,8 +2,7 @@
 var express         = require("express"),
     bodyParser      = require('body-parser'),
     methodOverride  = require('method-override'),
-    app             = express(),
-    session         = require('express-session');
+    app             = express();
 
     module.exports = function(){
 
@@ -22,17 +21,15 @@ var express         = require("express"),
     var VERSIONS = {'Pre-Production': '/v0'};
     app.get('/', function(req, res) {
         res.json(VERSIONS);
-    })
+    });
     
 
     app.use(bodyParser.json());
     app.use(methodOverride());
     
-    for (var k in VERSIONS) {
-        require('../app/routes' + VERSIONS[k])(app) ;
+    for (i in VERSIONS) {
+        require('../modules/test' + VERSIONS[i] + '/test.router')(app);
     }
-
-    //require('../app/routes/subject.route')(app);
 
     return app;
 };

@@ -1,10 +1,9 @@
 {
-    "name": "api.sefi",
+    "name": "api.toBusiness",
     "version": "0.0.1",
     "dependencies": {
       "express": "~4.8.8",
-      "express-session": "^1.11.3",
-      "mongodb":"2.0.14",  
+      "mongodb":"~2.0.14",  
 		  "body-parser": "~1.8.0",
 		  "method-override": "~2.2.0"
   },
