@@ -2,7 +2,7 @@ var TestModel 	= require('./test.model'),
     assert      = require('assert'),
     Connection  = require('../../../config/mongodb'),
     Log         = require('../../../shared/log'),
-    controller  = 'test.controller';
+    controller  = 'test';
 
 module.exports.create = function (req, res) {
     var d   = new Date();
@@ -23,8 +23,8 @@ module.exports.create = function (req, res) {
 
 module.exports.retrieve = function (req, res) {
     var d   = new Date();
-        start   = d.getMilliseconds();
-        Log.logStart({controller : controller, method:'Test.retrieve', d : d, body:req.body });
+    start   = d.getMilliseconds();
+    Log.logStart({controller : controller, method:'Test.retrieve', d : d, body:req.body });
     Connection.ejecute(function(err, db){
         assert.equal(null, err);
         //ejecute query

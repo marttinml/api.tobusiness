@@ -17,10 +17,11 @@ module.exports.create = function(db, data, callback) {
 
 module.exports.retrieve = function(db, callback) {
    var result = [];
-   var cursor = db.collection('subject_status').find();
+   var cursor = db.collection('test').find({});
    cursor.each(function(err, doc) {
       if (doc != null) {
           delete doc._id
+          delete doc.date
          result.push(doc);
       } else {
          callback(result);
