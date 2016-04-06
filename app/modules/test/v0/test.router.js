@@ -3,7 +3,7 @@ module.exports = function (app) {
     
     app.route('/v0/test').post(Test.create);
     app.route('/v0/test').get(Test.retrieve);
-    // app.route('/v0/test/#').get(Test.detail);
+    app.route('/v0/test/#').get(Test.detail);
     // app.route('/v0/test/#').patch(Test.update);
     // app.route('/v0/test/#').put(Test.replace);
     // app.route('/v0/test/#').delete(Test.delete);

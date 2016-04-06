@@ -28,3 +28,17 @@ module.exports.retrieve = function(db, callback) {
       }
    });
 };
+
+module.exports.detail = function(db, callback) {
+   var result = {};
+   var cursor = db.collection('test').find({});
+   cursor.each(function(err, doc) {
+      if (doc != null) {
+          delete doc._id
+          delete doc.date
+         result.push(doc);
+      } else {
+         callback(result);
+      }
+   });
+};
