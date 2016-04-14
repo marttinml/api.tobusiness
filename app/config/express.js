@@ -18,7 +18,7 @@ module.exports = function(){
         next();
     });
 
-    var VERSIONS = {'Pre-Production': '/v0'};
+    var VERSIONS = {'Pre-Production': '/v0/'};
     app.get('/', function(req, res) {
         res.json(VERSIONS);
     });
@@ -28,7 +28,7 @@ module.exports = function(){
     app.use(methodOverride());
     
     for (i in VERSIONS) {
-        require('../modules/test' + VERSIONS[i] + '/test.router')(app);
+        require('../modules' + VERSIONS[i] + 'test/test.router')(app);
     }
 
     return app;
