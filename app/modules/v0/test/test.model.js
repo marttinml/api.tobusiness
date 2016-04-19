@@ -49,3 +49,16 @@ module.exports.detail = function(db, id, callback) {
       }
    });
 };
+
+module.exports.update = function(db, id, data, callback) {
+   var result = [];
+   var cursor = db.collection('test').update(
+        { _id : ObjectId(id) },
+        data,
+        { upsert: true }
+    );
+   
+   console.log(cursor);
+
+   callback(cursor);
+};
