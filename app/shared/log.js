@@ -5,7 +5,7 @@ exports.logStart = function(val){
     console.log('   D A T A B A S E');
     console.log('   Document:  '+val.controller+' > '+val.method+'()');
     console.log('   >>> Data Request');
-    console.log('   '+val.body);
+    console.log('   ' + JSON.stringify(val.body));
         console.log('   ············································································\n');
 };
 exports.logEnd = function(val){
@@ -14,7 +14,6 @@ exports.logEnd = function(val){
     val.d   =  end - val.start;
 
     console.log('   <<< Data Response');
-    console.log('   '+val.response);
     console.log('············································································ Time: '+val.d+' ms');
 };
 exports.buildToken = function(){
